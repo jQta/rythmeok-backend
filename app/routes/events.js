@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get('/', async (req, res, next) => {
   try {
-    const events = await Event.find().populate('idartist').populate('idhall')
+    const events = await Event.find().populate('artist').populate('hall')
     return res.status(200).json(events)
   } catch (error) {
     return next(error)
