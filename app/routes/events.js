@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get('/', async (req, res, next) => {
   try {
-    const events = await Event.find().populate('idartist').populate('idhall')
+    const events = await Event.find()
     return res.status(200).json(events)
   } catch (error) {
     return next(error)
@@ -26,7 +26,7 @@ router.get('/id/:id', async (req, res, next) => {
   const { id } = req.params
 
   try {
-    const eventById = await Event.find({ id })
+    const eventById = await Event.findById(id)
     return res.status(200).json(eventById)
   } catch (error) {
     return next(error)

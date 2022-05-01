@@ -10,8 +10,8 @@ const eventsJSON = [
     id: 1,
     date: '08 Noviembre 2022',
     time: '12:00',
-    artist: '6266d54fd2b73532b0c3e4d5',
-    hall: '626572cad470b841b4f4ff4d',
+    artist: ['6266d54fd2b73532b0c3e4d5'],
+    hall: ['626572cad470b841b4f4ff4d'],
     price: 25,
     assistants: 16
   },
