@@ -29,52 +29,6 @@ const UserSchema = new mongoose.Schema(
       enum: ['user', 'admin', 'vip'],
       default: 'user'
     },
-    verification: {
-      type: String
-    },
-    verified: {
-      type: Boolean,
-      default: false
-    },
-    phone: {
-      type: String
-    },
-    city: {
-      type: String
-    },
-    country: {
-      type: String
-    },
-    urlTwitter: {
-      type: String,
-      validate: {
-        validator(v) {
-          return v === '' ? true : validator.isURL(v)
-        },
-        message: 'NOT_A_VALID_URL'
-      },
-      lowercase: true
-    },
-    urlGitHub: {
-      type: String,
-      validate: {
-        validator(v) {
-          return v === '' ? true : validator.isURL(v)
-        },
-        message: 'NOT_A_VALID_URL'
-      },
-      lowercase: true
-    },
-    loginAttempts: {
-      type: Number,
-      default: 0,
-      select: false
-    },
-    blockExpires: {
-      type: Date,
-      default: Date.now,
-      select: false
-    },
     friends: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -88,7 +42,14 @@ const UserSchema = new mongoose.Schema(
         ref: 'events',
         trim: true
       }
-    ]
+    ],
+    verification: {
+      type: String
+    },
+    verified: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     versionKey: false,

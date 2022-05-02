@@ -23,6 +23,8 @@ const createItem = async (req) => {
       phone: req.phone,
       city: req.city,
       country: req.country,
+      friends: req.friends,
+      purchases: req.purchases,
       verification: uuid.v4()
     })
     user.save((err, item) => {

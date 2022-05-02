@@ -38,13 +38,13 @@ if (process.env.USE_REDIS === 'true') {
 // for parsing json
 app.use(
   bodyParser.json({
-    limit: '20mb'
+    limit: '50mb'
   })
 )
 // for parsing application/x-www-form-urlencoded
 app.use(
   bodyParser.urlencoded({
-    limit: '20mb',
+    limit: '50mb',
     extended: true
   })
 )
