@@ -6,7 +6,10 @@ const User = require('../models/user')
 
 router.get('/', async (req, res) => {
   try {
-    const user = await User.find().populate('purchases')
+    const user = await User.find().populate({
+      path: 'purchases',
+      populate: [{ path: 'artist' }, { path: 'hall' }]
+    })
     return res.status(200).json(user)
   } catch (err) {
     return res.status(500).json(err)
